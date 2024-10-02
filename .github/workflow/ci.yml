@@ -23,10 +23,6 @@ jobs:
       with:
         node-version: '22.5.0'
 
-    # Install dependencies
-    - name: Install dependencies
-      run: npm install
-
     # Run tests
     - name: Run tests
       run: npm test
