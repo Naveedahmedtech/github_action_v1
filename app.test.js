@@ -3,10 +3,20 @@ const express = require("express");
 
 const app = express();
 
-const PORT = process.env.PORT || 3000; // Use OR operator for setting port
 app.get("/", (req, res) => res.status(200).send("App is running"));
 
-app.listen(PORT, () => console.log(`App is listening on port ${PORT}`));
+let server; 
+
+beforeAll((done) => {
+  server = app.listen(3000, () => {
+    console.log("Test server is running on port 3000");
+    done();
+  });
+});
+
+afterAll((done) => {
+  server.close(done); 
+});
 
 describe("GET /", () => {
   it('should return 200 OK with the message "App is running"', async () => {
