@@ -42,7 +42,7 @@ jobs:
 
       - name: Generate Coverage Report
         if: success()
-        run: npm run converage
+        run: npm run coverage
 
 
       - name: Upload test results
